@@ -1,0 +1,14 @@
+<%= form_for(@room) do |f| %>
+    <%= render 'shared/error_messages', object: @room %>
+
+    <%= f.label :number %>
+    <%= f.text_field :number, class: 'form-control' %>
+
+    <%= f.label :building %>
+    <%= f.text_field :building, class: 'form-control' %>
+
+    <%= f.label :size %>
+    <%= f.text_field :size, class: 'form-control' %>
+
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

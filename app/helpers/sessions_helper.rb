@@ -1,38 +1,30 @@
 module SessionsHelper
-  def log_in(admin)
-    session[:admin_id] = admin.id
+
+  def log_in(member)
+    session[:member_id] = member.id
   end
 
-  def remember(admin)
-    admin.remember
-    cookies.permanent.signed[:admin_id] = admin.id
-    cookies.permanent[:remember_token] = admin.remember_token
+  def current_member?(member)
+    member == current_member
   end
 
-  def current_admin?(admin)
-    admin == current_admin
+  def current_member
+    @current_member ||= Member.find_by(id: session[:member_id])
   end
 
-  def log_out
-    forget(current_admin)
-    session.delete(:admin_id)
-    @current_admin = nil
-  end
-
-  def current_admin
-    if (admin_id = session[:admin_id])
-      @current_admin ||= Admin.find_by(id: admin_id)
-    elsif (admin_id = cookies.signed[:admin_id])
-      admin = Admin.find_by(id: admin_id)
-      if admin && admin.authenticated?(cookies[:remember_token])
-        log_in admin
-        @current_adin = admin
-      end
-    end
+  def remember(member)
+    member.remember
+    cookies.permanent.signed[:member_id] = member.id
+    cookies.permanent[:remember_token] = member.remember_token
   end
 
   def logged_in?
-    !current_admin.nil?
+    !current_member.nil?
+  end
+
+  def log_out
+    session.delete(:member_id)
+    @current_member = nil
   end
 
   def redirect_back_or(default)
@@ -40,17 +32,9 @@ module SessionsHelper
     session.delete(:forwarding_url)
   end
 
-  def forget(admin)
-    admin.forget
-    cookies.delete(:admin_id)
-    cookies.delete(:remember_token)
-  end
-
+  # Stores the URL trying to be accessed.
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
-  def destroy
-    log_out if logged_in?
-    redirect_to root_url
-  end
+
 end

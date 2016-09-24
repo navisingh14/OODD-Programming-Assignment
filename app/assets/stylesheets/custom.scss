@@ -67,8 +67,8 @@ footer {
   a{
     color: $gray;
     &:hover {
-    color: $gray-darker;
-  }
+      color: $gray-darker;
+    }
   }
   small {
     float: left;
@@ -77,9 +77,9 @@ footer {
     float: right;
     list-style: none;
     li {
-    float: left;
-    margin-left: 15px;
-  }
+      float: left;
+      margin-left: 15px;
+    }
   }
 }
 

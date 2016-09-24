@@ -10,25 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924131905) do
+ActiveRecord::Schema.define(version: 20160924034904) do
 
-  create_table "admins", force: :cascade do |t|
-    t.string   "name"
+  create_table "members", force: :cascade do |t|
+    t.string   "username"
     t.string   "email"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "password_digest"
     t.boolean  "admin",           default: false
-    t.string   "remember_digest"
+    t.boolean  "superadmin",      default: false
+    t.index ["email"], name: "index_members_on_email", unique: true
   end
 
-  create_table "members", force: :cascade do |t|
-    t.string   "username"
-    t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "password_digest"
-    t.index ["email"], name: "index_members_on_email", unique: true
+  create_table "roomhistories", force: :cascade do |t|
+    t.string   "number"
+    t.string   "userid"
+    t.date     "date"
+    t.time     "time_from"
+    t.time     "time_to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "number"
+    t.string   "building"
+    t.string   "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

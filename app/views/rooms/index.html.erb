@@ -1,0 +1,8 @@
+<% provide(:title, 'All rooms') %>
+<ul class="rooms">
+  <% @rooms.each do |room| %>
+      <li>
+        <%= link_to room.number, room %>
+      </li>
+  <% end %>
+</ul>
