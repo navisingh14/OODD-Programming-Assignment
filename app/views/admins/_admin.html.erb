@@ -2,6 +2,6 @@
   <%= link_to admin.name, admin %>
   <% if current_admin.admin? && !current_admin?(admin) %>
     <%= link_to "delete", admin, method: :delete,
-                                 data: { confirm: "You sure?"}
-    <% end %>
+                                 data: { confirm: "You sure?"}%>
+<% end %>
 </li>

@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse"> <div class="container">
-  <%= link_to "LibraryRoom Booking", root_path, id: "logo" %>
   <nav>
+    <%= link_to "LibraryRoom Booking", root_path, id: "logo" %>
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to "Log in", login_path %></li>
       <% if logged_in? %>
@@ -11,13 +11,14 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Settings", edit_admin_path(current_admin) %></li>
+              <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>
               </li>
           </ul>
           </li>
       <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+
       <% end %>
     </ul>
   </nav>

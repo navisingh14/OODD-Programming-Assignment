@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>"Full blog"</title>
+    <title>Library Room Booking System</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
@@ -16,7 +16,6 @@
         <% end %>
         <%= yield %>
         <%= render 'layouts/footer' %>
-        <%= debug(params) if Rails.env.development? %>
   </div>
   </body>
 </html>

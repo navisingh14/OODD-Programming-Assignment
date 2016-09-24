@@ -11,16 +11,16 @@ class AdminsController < ApplicationController
   end
 
   def create
-    admin = Admin.find_by(email: params[:session][:email].downcase)
-    if admin && admin.authenticate(params[:session][:password])
-      log_in admin
-      params[:session][:remember_me] == '1' ? remember(admin) : forget(admin)
-      redirect_back_or admin
-    else
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+    @admin = Admin.new(admin_params)
+    if @admin.save
+    log_in @admin
+    flash[:success] = "Welcome to the Sample App!"
+    redirect_to @admin
+  else
+    render 'new'
     end
   end
+
 
   def index
     @admins = Admin.paginate(page: params[:page])

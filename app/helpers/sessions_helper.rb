@@ -14,12 +14,21 @@ module SessionsHelper
   end
 
   def log_out
-    sessions.delete(:admin_id)
+    forget(current_admin)
+    session.delete(:admin_id)
     @current_admin = nil
   end
 
   def current_admin
-    @current_admin ||= Admin.find_by(id: session[:admin_id])
+    if (admin_id = session[:admin_id])
+      @current_admin ||= Admin.find_by(id: admin_id)
+    elsif (admin_id = cookies.signed[:admin_id])
+      admin = Admin.find_by(id: admin_id)
+      if admin && admin.authenticated?(cookies[:remember_token])
+        log_in admin
+        @current_adin = admin
+      end
+    end
   end
 
   def logged_in?
@@ -31,7 +40,17 @@ module SessionsHelper
     session.delete(:forwarding_url)
   end
 
+  def forget(admin)
+    admin.forget
+    cookies.delete(:admin_id)
+    cookies.delete(:remember_token)
+  end
+
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
+  end
+  def destroy
+    log_out if logged_in?
+    redirect_to root_url
   end
 end
