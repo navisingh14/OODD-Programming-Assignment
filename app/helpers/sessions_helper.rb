@@ -3,6 +3,16 @@ module SessionsHelper
     session[:admin_id] = admin.id
   end
 
+  def remember(admin)
+    admin.remember
+    cookies.permanent.signed[:admin_id] = admin.id
+    cookies.permanent[:remember_token] = admin.remember_token
+  end
+
+  def current_admin?(admin)
+    admin == current_admin
+  end
+
   def log_out
     sessions.delete(:admin_id)
     @current_admin = nil
@@ -14,5 +24,14 @@ module SessionsHelper
 
   def logged_in?
     !current_admin.nil?
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end
