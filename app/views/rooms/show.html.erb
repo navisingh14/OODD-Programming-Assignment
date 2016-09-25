@@ -1,3 +1,20 @@
-<%= @room.number %>, <%= @room.building %>, <%= @room.size  %>
+<br>
+<br>
+<table style="width:100%">
+
+<tr>
+<th><font size="4">Room Number</font></th>
+<th><font size="4">Library  </font></th>
+<th><font size="4">Room Size  </font></th>
+
+</tr>
+
+<tr>
+  <td><%= @room.number %></td>
+  <td><%= @room.building %></td>
+  <td><%= @room.size  %></td>
+</tr>
+</table>
+<br>
 <%= link_to 'Back', current_member %>
-<%= link_to 'logout', logout_path %>
+<!--<%= link_to 'logout', logout_path %>-->

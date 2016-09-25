@@ -51,7 +51,7 @@ class MembersController < ApplicationController
   def destroy
     Member.find(params[:id]).destroy
     flash[:success] = "Member deleted"
-    redirect_to @member
+    redirect_to members_path
   end
 
   private

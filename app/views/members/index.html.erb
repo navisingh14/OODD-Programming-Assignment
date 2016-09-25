@@ -14,10 +14,8 @@
     <tr>
       <td><%= member.username %></td>
       <td><%= member.email %></td>
-      <td><% if current_member.admin? && !member.admin? %>
+      <td><% if current_member.admin? && !current_member?(member) && !member.superadmin? %>
             | <%= link_to "delete", member, method: :delete, data: { confirm: "You sure?"} %>
-            <% elsif current_member.superadmin? && !current_member?(member) %>
-        |  | <%= link_to "delete", member, method: :delete, data: { confirm: "You sure?"} %>
         <% end %></td>
     </tr>
 <% end %>
