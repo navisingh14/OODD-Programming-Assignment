@@ -13,16 +13,16 @@
     <%= link_to "Create new admins", new_member_path %>
 <% end %>-->
 <br>
-<table style="width:100%">
+<table style="width:80%">
   <tr>
     <th><font size="4">User</font></th>
     <th><font size="4">Email</font></th>
-    <th><font size="4">Level</font></th>
+    <th><font size="4"><p align="right">Level</p></font></th>
   </tr>
       <tr>
         <td><%= @member.username %></td>
         <td><%= @member.email %></td>
-        <td>
+        <td><p align="left">
           <% if @member.admin?%>
              <td>admin</td>
             <%elsif @member.superadmin?%>
@@ -30,6 +30,7 @@
             <%else%>
               <td>member</td>
           <% end %>
+        </p>
         </td>
       </tr>
 </table>

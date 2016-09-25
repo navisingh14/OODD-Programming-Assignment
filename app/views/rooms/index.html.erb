@@ -1,5 +1,5 @@
-<br>
-<h2>Rooms</h2>
+<h1>The Library App</h1>
+<h2>Listing Rooms</h2>
 <% provide(:title, 'All rooms') %>
 <ul class="rooms">
   <% @rooms.each do |room| %>
@@ -8,4 +8,5 @@
       </li>
   <% end %>
 </ul>
+<br>
 <%= link_to "Add a Room", room_add_path %>
