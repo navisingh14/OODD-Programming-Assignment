@@ -20,24 +20,13 @@
 
         <td><%= begin_time.strftime("%T") + "--" + to_time.strftime("%T")%></td>
 
-        <% 7.times do |day_number| %>
-            <% booktime = begin_time + day_number.days %>
-            <% @book = Roomhistory.where(:time_from => booktime, :time_to => to_time)%>
-            <td>
-
-              <% if !@book.nil? %>
-                  <%= "Available"%><br>
-                  <%= link_to "Book", new_roomhistory_path(:number => @room.number,
-                                                        :time_from => booktime,
-                                                        :time_to => to_time)%>
-              <% elsif %>
-                  <%= "Booked by" %><br>
-                  <%= link_to "Cancel", rooms_path%>
-              <% end%>
-            </td>
-        <%end %>
-
         <% begin_time = begin_time + 2*60*60 %>
+
+        <% begin_date = DateTime.now %>
+        <% 7.times do |day_number| %>
+            <% day = begin_date + day_number.days %>
+            <td><%= "test" %></td>
+        <%end %>
       </tr>
     <%end %>
   </tbody>
