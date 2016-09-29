@@ -14,6 +14,7 @@
     <th>Username</th>
     <th>Email Id</th>
     <th>Booking History</th>
+
   </tr>
   </thead>
 
@@ -29,11 +30,13 @@
             <% end %>
             </td>
         <td><% if current_member.admin? && !member.superadmin? && !current_member?(member)%>
-            | <%= link_to "delete", member, method: :delete, data: { confirm: "You sure?"} %>
+            | <%= link_to "delete", member, method: :destroy, data: { confirm: "You sure?"} %>
                <% end %></td>
 
-
-
+    <td>  | <%= link_to "view booking history", historybymember_path(:userid => member.username) %> </td>
+        <% if current_member.admin? && !member.superadmin? && !current_member?(member)%>
+          <td> <%= button_to "delete", member, method: :delete, data: { confirm: "You sure?"} %></td>
+               <% end %>
     </tr>
 <% end %>
 </tbody>

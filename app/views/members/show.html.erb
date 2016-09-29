@@ -3,7 +3,12 @@
 <!--
 <%= link_to "Home", current_member %>
 <span style="display:inline-block; width: 3%;"></span>
+
+
 <%= link_to 'Edit Profile', edit_member_path %>
+<span style="display:inline-block; width: 3%;"></span>
+<%= link_to 'Book a room', search_path %>
+
 <span style="display:inline-block; width: 3%;"></span>
 <% if !current_member.admin? %>
 <%= link_to 'Book a room', rooms_path %>
@@ -29,7 +34,10 @@
       <tr>
         <td><%= @member.username %></td><span style="display:inline-block; width: 3%;"></span>
         <td><%= @member.email %></td>
-          </tr>
+        <td><%= @current_member.admin? %></td>
+
+
+      </tr>
   </tbody>
 </table>
 <br><br>

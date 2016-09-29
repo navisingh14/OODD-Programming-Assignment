@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924034904) do
+ActiveRecord::Schema.define(version: 20160926044304) do
 
   create_table "members", force: :cascade do |t|
     t.string   "username"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20160924034904) do
     t.string   "number"
     t.string   "userid"
     t.date     "date"
-    t.time     "time_from"
-    t.time     "time_to"
+    t.datetime "time_from"
+    t.datetime "time_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -19,10 +19,15 @@
     <td><%= @room.number %></td>
     <td><%= @room.building %></td>
     <td><%= @room.size  %></td>
-   <% if current_member.admin? %>
-    <td><%= link_to 'Edit', edit_room_path %></td>
-  <% end %>
-        </tr>
+
+    <td>| <%= link_to "Schedule", schedule_path(:id => @room.id) %></td>
+
+    <td><% if current_member.admin? %>
+          | <%= link_to 'Edit', edit_room_path %>
+          | <%= link_to "History", roomhistories_path(:number => room.number) %>
+          | <%= link_to "Delete", room, method: :delete, data: { confirm: "You sure?" } %>
+      <% end %></td>
+  </tr>
   </tbody>
 </table>
 

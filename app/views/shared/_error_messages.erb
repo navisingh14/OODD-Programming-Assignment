@@ -13,17 +13,18 @@
     <% end %>
 <% end %>
 
-<% if !@room.nil? %>
-    <% if @room.errors.any? %>
+<%#
+<% if !@room.nil?
+   <% if @room.errors.any?
         <div id="error_explanation">
           <div class="alert alert-danger">
-            The form contains <%= pluralize(@room.errors.count, "error") %>.
+            The form contains <%= pluralize(@room.errors.count, "error")
           </div>
           <ul>
-            <% @room.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
+            <% @room.errors.full_messages.each do |msg|
+                <li><%= msg</li>
+            <% end
           </ul>
         </div>
-    <% end %>
+    <% end
 <% end %>

@@ -49,7 +49,11 @@ class MembersController < ApplicationController
 
 
   def destroy
-    Member.find(params[:id]).destroy
+    @member = Member.find(params[:id])
+    Roomhistory.where(userid: @member.username).each do |history|
+      history.destroy
+    end
+    @member.destroy
     flash[:success] = "Member deleted"
     redirect_to members_path
   end

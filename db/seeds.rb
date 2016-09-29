@@ -12,3 +12,7 @@ Member.create!(username:  "Navjot Singh",
              password_confirmation: "foobar",
              admin: true,
                superadmin: true)
+
+Room.create!(number: "12",
+building: "D.H.Hill",
+size: "Medium - 6 chairs")

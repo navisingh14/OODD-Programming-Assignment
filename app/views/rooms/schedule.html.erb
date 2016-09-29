@@ -1,5 +1,5 @@
 <h1>Room schedule</h1>
-<%= @room.number %>, <%= @room.building %>, <%= @room.size  %>, <%= @test99  %>
+<%= @room.number %>, <%= @room.building %>, <%= @room.size  %>
 
 <table>
   <thead>
@@ -13,33 +13,38 @@
   </thead>
 
   <tbody>
-    <% begin_time = Time.new(Time.now.year, Time.now.mon, Time.now.day) %>
-    <% until begin_time.day > Time.now.day %>
+    <% @begin_time = Time.new(Time.now.year, Time.now.mon, Time.now.day) %>
+    <% until @begin_time.day > Time.now.day %>
       <tr>
-        <% to_time   = begin_time + 2*60*60 - 1 %>
+        <% @to_time   = @begin_time + 2*60*60 - 1 %>
 
-        <td><%= begin_time.strftime("%T") + "--" + to_time.strftime("%T")%></td>
-
-        <% begin_time = begin_time + 2*60*60 %>
-
-        <% begin_date = DateTime.now %>
+        <td><%= @begin_time.strftime("%T") + "--" + @to_time.strftime("%T")%></td>
 
         <% 7.times do |day_number| %>
-            <% booktime = begin_time + day_number.days %>
-            <% @book = Roomhistory.where(:time_from => booktime, :time_to => to_time)%>
+            <% @booktime = @begin_time + day_number.days %>
+            <% @booktotime = @begin_time + day_number.days + 2*60*60 - 1 %>
+            <% @book = Roomhistory.find_by(number: @room.number, time_from: @booktime, time_to: @booktotime) %>
             <td>
 
-              <% if !@book.nil? %>
-                  <%= "Available"%><br>
-                  <%= link_to "Book", rooms_path %>
-              <% elsif %>
-                  <%= "Booked by" %><br>
-                  <%= link_to "Cancel", rooms_path%>
-              <% end%>
+
+            <%if @booktime >= Time.now %>
+              <% if @book.nil? %>
+                <%= "Available"%><br>
+                <%= link_to "Book", new_roomhistory_path(:number => @room.number,
+                                                    :time_from => @booktime,
+                                                      :time_to => @booktotime) %>
+                               <%else %>
+                  <%= "Booked by " %><%= @book.userid %><br>
+                  <%= link_to "Cancel", cancel_path(:id => @book.id) %>
+              <%end%>
+
+            <%else %>
+              <%= "Unavailable" %><br>
+            <%end%>
             </td>
         <%end %>
 
-        <% begin_time = begin_time + 2*60*60 %>
+        <% @begin_time = @begin_time + 2*60*60 %>
       </tr>
     <%end %>
   </tbody>

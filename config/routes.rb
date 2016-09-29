@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   get '/rooms', to: 'rooms#index'
 
+
+get '/search', to: 'rooms#search'
+post '/showroom', to: 'rooms#showroom'
+
+
   get 'sessions/new'
   get '/historybymember', to: 'roomhistories#historybymember'
   get '/schedule', to: 'rooms#schedule'
@@ -12,7 +17,7 @@ Rails.application.routes.draw do
   get '/room_histories', to: 'room_histories#new'
 
   get '/rooms', to: 'rooms#index'
-
+  get '/cancel', to: 'roomhistories#cancel'
 
   get 'sessions/new'
 #  get 'members/new'

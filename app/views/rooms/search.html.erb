@@ -1,0 +1,31 @@
+<h1>The Library Application</h1>
+<h2>Choose a Room</h2>
+<%= link_to "Home", current_member %>
+<span style="display:inline-block; width: 3%;"></span>
+<%= link_to 'Log out', logout_path %>
+
+<br><br>
+<% provide(:button_text, 'Search') %>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+
+
+
+<%= form_for(:room, :url => {:action => 'showroom', :controller => 'rooms'}) do |f| %>
+    <%= render 'shared/error_messages', object: @room %>
+
+    <%= f.label :size, class: 'form-control' %><br>
+    <%= f.select(:size, options_for_select([['Small - 4 chairs', 'Small - 4 chairs'], ['Medium - 6 chairs', 'Medium - 6 chairs'],
+                                            ['Large - 12 chairs','Large - 12 chairs']])) %>
+    <br><br>
+    <%= f.label :building, class: 'form-control' %><br>
+    <%= f.select(:building, options_for_select([['D.H.Hill', 'D.H.Hill'], ['James B.Hunt', 'James B.Hunt']]))%>
+    <br><br>
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+
+  </div>
+</div>

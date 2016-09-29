@@ -1,22 +1,29 @@
 <%= form_for(@roomhistory) do |f| %>
 
+    <%= render 'shared/error_messages', object: @roomhistory%>
 
-    <!--  <br><br><%= f.label "Select a room" %><br>
-        <%= f.select :number, options_for_select(Room.all.pluck(:number)) %>
-    <br><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password, class: 'form-control' %>
-    <br><br>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
--->
 
-<%= f.hidden_field :number, :value => params[:number] %>
+
+    <%= f.label "Room Number" %><br>
+    <%= f.hidden_field :number, :value => params[:number] %>
+    <%=  params[:number] %>
+
+    <%= f.label "From" %><br>
     <%= f.hidden_field :time_from, :value => params[:time_from] %>
-    <%= f.hidden_field :time_to, :value => params[:time_to] %>
-    <%= f.label :userid %><br>
-    <%= f.text_field :userid, class: 'form-control' %>
+    <%=  params[:time_from] %>
 
+    <%= f.label "To" %><br>
+    <%= f.hidden_field :time_to, :value => params[:time_to] %>
+    <%= params[:time_to] %>
+
+    <%= f.hidden_field "roomid", :value => params[:roomid] %>
+
+    <%= f.label :userid %><br>
+    <% if current_member.admin? %>
+        <%= f.text_field :userid, class: 'form-control' %>
+    <% else %>
+        <%= @current_member.username %>
+    <% end %>
 
     <br><br>
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
