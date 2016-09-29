@@ -11,7 +11,10 @@
         <% if logged_in? %>
             <li><%= link_to "Members", members_path %></li>
             <li><%= link_to "Rooms", rooms_path %></li>
+
+            <% if current_member.admin?%>
             <li><%= link_to "Create new admins", new_member_path %></li>
+                <% end %>
             <!-- <li><%= link_to "Rooms", rooms_path %></li>-->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -19,7 +22,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", current_member %></li>
+                <% if !current_member.superadmin? %>
                 <li><%= link_to "Update", edit_member_path(current_member) %></li>
+                    <% end %>
+
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Log out", logout_path %>

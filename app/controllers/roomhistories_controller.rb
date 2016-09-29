@@ -19,6 +19,12 @@ class RoomhistoriesController < ApplicationController
     end
   end
 
+def edit
+end
+
+
+
+
   def cancel
     @roomhistory = Roomhistory.find(params[:id])
     @roomhistory.destroy
@@ -41,7 +47,10 @@ class RoomhistoriesController < ApplicationController
 
   def historybymember
     @roomhistory = Roomhistory.where(userid: params[:userid])
+
   end
+
+
 
 
     private
@@ -62,13 +71,11 @@ class RoomhistoriesController < ApplicationController
       #   end
       # end
 
-
+end
 
      def roomhistory_params
 
         params.require(:roomhistory).permit(:number, :userid, :time_from, :time_to)
       end
 
-    end
 end
-

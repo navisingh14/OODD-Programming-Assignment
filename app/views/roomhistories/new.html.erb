@@ -7,7 +7,28 @@
 
 <br><br>
 <% provide(:button_text, 'Book') %>
-<h1>Check the details!</h1>
+
+
+<!--
+<% @room.each do |r| %>
+    <tr>
+      <td><%= r.size %></td>
+      <td><%= r.building %></td>
+      <td><%= r.number %></td>
+         <td>
+        <%= form_for(Roomhistory.new, remote: true, format: :js, url: {controller: "roomhistories", action: "create"}) do |f| %>
+            <%= f.datetime_select :time_from, :ampm => true %>
+            <%= f.hidden_field :number, value: r.id %>
+            <%= f.hidden_field :userid, value: current_member.id %>
+            <%= f.submit  "Book" %>
+   <br><br>     <% end %>
+      </td>
+    </tr>
+<% end %> -->
+
+<% provide(:title, 'Sign up') %>
+<% provide(:button_text, 'Create my account') %>
+<h1>Book a room!</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">

@@ -1,10 +1,16 @@
 class RoomsController < ApplicationController
+
+
+
+
+
   before_action :logged_in_member, only: [:create, :index, :destroy]
+
 
   # before_action :admin, only: [:create, :destroy]
 
-  before_action :admin, only: [ :destroy]
 
+  before_action :admin, only: [:create, :destroy]
 
 
 
@@ -49,6 +55,9 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
+
+
+
     if !current_member.admin?
       redirect_to showroom_path
     elsif current_member.admin

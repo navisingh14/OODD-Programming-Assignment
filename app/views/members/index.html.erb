@@ -1,20 +1,20 @@
-<h1>The Library App</h1>
+
 <h2>Listing Members</h2>
 
 <br><br><br>
 
-<%= link_to "Home", current_member %> <span style="display:inline-block; width: 3%;"></span>
+<!--<%= link_to "Home", current_member %> <span style="display:inline-block; width: 3%;"></span>
 <span style="display:inline-block; width: 3%;"></span>   <%= link_to 'Log out', logout_path %>
 
-<br><br><br><br><br><br>
-
-<table>
+<br><br>
+-->
+<table style="width:100%">
   <thead>
   <tr>
     <th>Username</th>
     <th>Email Id</th>
-    <th></th>
-    <th></th>
+    <th>Booking History</th>
+
   </tr>
   </thead>
 
@@ -23,6 +23,15 @@
     <tr>
       <td><%= link_to member.username, member %></td>
       <td><%= member.email %></td>
+
+      <td>
+        <% if current_member?(member) || current_member.superadmin? %>
+            <%= link_to "view booking history", historybymember_path(:userid => member.username) %>
+            <% end %>
+            </td>
+        <td><% if current_member.admin? && !member.superadmin? && !current_member?(member)%>
+            | <%= link_to "delete", member, method: :destroy, data: { confirm: "You sure?"} %>
+               <% end %></td>
 
     <td>  | <%= link_to "view booking history", historybymember_path(:userid => member.username) %> </td>
         <% if current_member.admin? && !member.superadmin? && !current_member?(member)%>

@@ -1,7 +1,8 @@
-<h1>The Library Application</h1>
+<h1>Library Rooms</h1>
 
 <h2><% provide(:title, 'Manage rooms') %></h2>
 <br><br>
+
 <%= link_to "Home", current_member %>
 <span style="display:inline-block; width: 3%;"></span>
 <% if current_member.admin? %>
@@ -11,7 +12,7 @@
 <%= link_to 'Log out', logout_path %>
 
 <br><br>
-<table>
+<table style="width:100%">
   <thead>
   <tr>
     <th>Room number</th>
@@ -28,9 +29,13 @@
         <td><%= link_to room.number, room %></td>
         <td><%= link_to room.building, room %></td>
         <td><%= link_to room.size, room %></td>
+
+
         <td>| <%= link_to "Schedule", schedule_path(:id => room.id) %></td>
 
+
         <td><% if current_member.admin? %>
+
               | <%= link_to "History", roomhistories_path(:number => room.number) %></td>
               <td><%= button_to "Delete", room, method: :delete, data: { confirm: "You sure?" } %></td>
           <% end %>

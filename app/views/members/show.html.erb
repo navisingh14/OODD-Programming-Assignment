@@ -1,12 +1,19 @@
-<h1>The Library Application</h1>
-<h2>User Profile</h2>
 
+<h2>User Profile</h2>
+<!--
 <%= link_to "Home", current_member %>
 <span style="display:inline-block; width: 3%;"></span>
+
+
 <%= link_to 'Edit Profile', edit_member_path %>
 <span style="display:inline-block; width: 3%;"></span>
 <%= link_to 'Book a room', search_path %>
+
 <span style="display:inline-block; width: 3%;"></span>
+<% if !current_member.admin? %>
+<%= link_to 'Book a room', rooms_path %>
+<% end %>
+    <span style="display:inline-block; width: 3%;"></span>
 <% if current_member.admin?  %>
      <%= link_to "Manage Members", members_path %> <span style="display:inline-block; width: 3%;"></span>
       <%= link_to "Manage rooms", rooms_path %> <span style="display:inline-block; width: 3%;"></span>
@@ -14,18 +21,18 @@
 
 <% end %>
 <span style="display:inline-block; width: 3%;"></span> <%= link_to 'Log out', logout_path %>
-
+-->
 <br><br><br>
-<table>
+<table style="width:100%">
   <thead>
   <tr>
-    <th>Username</th>
-    <th>Email Id</th>
+    <th>Username  </th>
+    <th>  Email Id  </th>
   </tr>
   </thead>
   <tbody>
       <tr>
-        <td><%= @member.username %></td>
+        <td><%= @member.username %></td><span style="display:inline-block; width: 3%;"></span>
         <td><%= @member.email %></td>
         <td><%= @current_member.admin? %></td>
 
