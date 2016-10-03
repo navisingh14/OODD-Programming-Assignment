@@ -58,27 +58,39 @@ class MembersController < ApplicationController
     redirect_to members_path
   end
 
-  private
-  def member_params
-    params.require(:member).permit(:username, :email, :password,
-                                 :password_confirmation, :admin)
-  end
-
-  def logged_in_member
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
-
-  def correct_member
+  def allowmultibook
     @member = Member.find(params[:id])
-    redirect_to(root_url) unless current_member?(@member)
+    @member.update(multibook: true)
+    redirect_to @member
   end
 
-  def admin_member
-    redirect_to(root_url) unless current_member.admin?
+  def cancelmultibook
+    @member = Member.find(params[:id])
+    @member.update(multibook: false)
+    redirect_to @member
   end
+
+      private
+      def member_params
+        params.require(:member).permit(:username, :email, :password,
+                                     :password_confirmation, :admin, :multibook)
+      end
+
+      def logged_in_member
+        unless logged_in?
+          store_location
+          flash[:danger] = "Please log in."
+          redirect_to login_url
+        end
+      end
+
+      def correct_member
+        @member = Member.find(params[:id])
+        redirect_to(root_url) unless current_member?(@member)
+      end
+
+      def admin_member
+        redirect_to(root_url) unless current_member.admin?
+      end
 
 end

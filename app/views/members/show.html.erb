@@ -21,15 +21,31 @@
   <tr>
     <th>Username</th>
     <th>Email Id</th>
+    <th>Member type</th>
+    <% if !@member.admin? %>
+        <th>Has Multiple Booking</th>
+    <% end%>
   </tr>
   </thead>
   <tbody>
       <tr>
         <td><%= @member.username %></td>
         <td><%= @member.email %></td>
-        <td><%= @member.admin? %></td>
+        <% if @member.superadmin? %>
+            <td><%= "Super Admin" %></td>
+        <% elsif @member.admin?%>
+            <td><%= "Admin" %></td>
+        <% else%>
+            <td><%= "User" %></td>
+        <% end%>
 
-
+        <% if !@member.admin?%>
+            <% if @member.multibook?%>
+                <td><%= "Yes" %></td>
+            <% else%>
+                <td><%= "No" %></td>
+            <% end%>
+        <% end%>
       </tr>
   </tbody>
 </table>

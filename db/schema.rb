@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001181810) do
+ActiveRecord::Schema.define(version: 20161002213707) do
 
   create_table "members", force: :cascade do |t|
     t.string   "username"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 20161001181810) do
     t.string   "password_digest"
     t.boolean  "admin",           default: false
     t.boolean  "superadmin",      default: false
+    t.boolean  "multibook",       default: false
     t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["username"], name: "index_members_on_username", unique: true
   end
 
   create_table "roomhistories", force: :cascade do |t|

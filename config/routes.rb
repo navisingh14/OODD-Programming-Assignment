@@ -15,6 +15,9 @@ post '/showroom', to: 'rooms#showroom'
 
   get '/cancel', to: 'roomhistories#cancel'
 
+  get '/allowmultibook', to: 'members#allowmultibook'
+  get '/cancelmultibook', to: 'members#cancelmultibook'
+
   get 'sessions/new'
 #  get 'members/new'
 resources :members

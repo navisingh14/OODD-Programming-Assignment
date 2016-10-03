@@ -20,6 +20,9 @@
 
         <td><%= @begin_time.strftime("%T") + "--" + @to_time.strftime("%T")%></td>
 
+        <% @ctrlbook = Roomhistory.where("number = :number AND userid = :userid AND time_from >= :time_from",
+                                          {number: @room.number, userid: current_member.username, time_from: Time.now}).first %>
+
         <% 7.times do |day_number| %>
             <% @booktime = @begin_time + day_number.days %>
             <% @booktotime = @begin_time + day_number.days + 2*60*60 - 1 %>
@@ -30,15 +33,22 @@
             <%if @booktime >= Time.now %>
               <% if @book.nil? %>
                 <%= "Available"%><br>
-                <%= link_to "Book", new_roomhistory_path(:number => @room.number,
-                                                    :time_from => @booktime,
-                                                      :time_to => @booktotime) %>
-                               <%else %>
-                  <%= "Booked by " %><%= @book.userid %><br>
-                      <% if current_member.admin? || @current_member.username==@book.userid %>
-                  <%= link_to "Cancel", cancel_path(:id => @book.id) %>
-              <%end%>
+                <% if current_member.multibook? or @ctrlbook.nil?%>
+                  <%= link_to "Book", new_roomhistory_path(:number => @room.number,
+                                                      :time_from => @booktime,
+                                                        :time_to => @booktotime) %>
+                <% end %>
+
+              <%else %>
+                  <% if current_member.admin? %>
+                      <%= "Booked by " %><%= @book.userid %><br>
+                  <% else%>
+                      <%= "Booked" %><br>
+                  <% end%>
+                  <% if current_member.admin? || @current_member.username==@book.userid %>
+                     <%= link_to "Cancel", cancel_path(:id => @book.id) %>
                   <%end%>
+              <%end%>
 
             <%else %>
               <%= "Unavailable" %><br>

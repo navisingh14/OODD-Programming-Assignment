@@ -13,6 +13,8 @@
   <tr>
     <th>Username</th>
     <th>Email Id</th>
+    <th>Type</th>
+    <th>Multiple booking</th>
     <th></th>
     <th></th>
   </tr>
@@ -24,10 +26,32 @@
       <td><%= link_to member.username, member %></td>
       <td><%= member.email %></td>
 
-    <td>  | <%= link_to "view booking history", historybymember_path(:userid => member.username) %> </td>
-        <% if current_member.admin? && !member.superadmin? && !current_member?(member)%>
-          <td> <%= button_to "Delete", member, method: :delete, data: { confirm: "You sure?"} %></td>
-               <% end %>
+      <% if member.superadmin? %>
+          <td><%= "Super Admin" %></td>
+      <% elsif member.admin?%>
+          <td><%= "Admin" %></td>
+      <% else%>
+          <td><%= "User" %></td>
+      <% end%>
+
+      <% if member.multibook?%>
+          <td><%= "Yes" %></td>
+      <% else%>
+          <td><%= "No" %></td>
+      <% end%>
+
+      <% if !member.admin? %>
+    <td>  | <%= link_to "view booking history", historybymember_path(:userid => member.username) %> |</td>
+      <% end%>
+
+      <% if current_member.admin? && !member.superadmin? && !current_member?(member)%>
+        <% if member.multibook? %>
+            <td> <%= link_to "Cancel Multibook", cancelmultibook_path(:id => member.id) %></td>
+        <% else%>
+            <td> <%= link_to "Allow Multibook", allowmultibook_path(:id => member.id) %></td>
+        <% end%>
+        <td> <%= button_to "Delete", member, method: :delete, data: { confirm: "You sure?"} %></td>
+      <% end %>
     </tr>
 <% end %>
 </tbody>
