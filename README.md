@@ -21,6 +21,7 @@ Below are the main function descriptions
 2. Update information:
 
   You can always update your own membership information by clicking Profile in the Account drop-down button at the top right heder.
+  
   An superadmin member can edit the information of admin/user member, an admin member can edit the information of user member. This can be done by clicking the username from the Listing Members form, after you click Member button in the header. 
 
 3. Book a Room(cancel, email notice):
