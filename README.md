@@ -1,3 +1,4 @@
+
 Below is some of the information you may find useful while accessing the Library Application.
 
 You can use the default information for the super admin below to log in the system and check out various functions. There are some original information for the users and rooms in the database which you can play with, and the buttons are very self-explanatory to use. The 'LibraryRoom Booking' logo at the top left corner of the header acts as a 'Home' button, feel free to click whenever you need a fresh start. Thank you and good luck booking!
@@ -22,15 +23,15 @@ Below are the main function descriptions
 
 3. Book a Room (cancel, email notice):
 
-  Overall, all member can book a room for a time slot of 2 hours, he/she cannot cancel such reservation during the reserved time period. According to our schedule system, a daytime is devide 12 dividends, reservation crossing over more than 1 dividend is not allowed.
+  Overall, all member can book a room for a time slot of 2 hours, he/she cannot cancel such reservation during the reserved time period. According to our schedule system, a daytime is devide 12 segments, reservation crossing over more than 1 segment is not allowed.
   
   By default, a member can only book one room at a particular time and date. He/she can choose to delete the reservation before the starting time of reserved room. He/she can also type in multiple email addresses at the booking page to inform his team members about the successful reservation. 
   
-  An admin member can book multiple reservations for users
+  Super/admin members can help users to book multiple reservations, they can also enable/disable users to have multiple booking functions which they possess as default.  
   
   
-  
-4. Multiplte Booking:
+4. Room management:
+
 
 5. Booking history of a room:
   
