@@ -15,6 +15,14 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
   
+  test "should redirect update when not logged in" do
+    patch member_path(@user), params: { member: { name: @member.name,
+                                              email: @member.email }}
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+ 
+      
   test "should redirect destroy when logged in as a non-admin" do
     log_in_as(other_member)
     assert_no_different 'Member.count' do
