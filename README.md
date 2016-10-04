@@ -14,9 +14,9 @@ Below are the main function descriptions
 
 1. Signing up/Creating member:
 
-When you don't have any account in the system, you can always sign up as a user by clicking Sign Up at the front page. 
+  When you don't have any account in the system, you can always sign up as a user by clicking Sign Up at the front page. 
 
-You can also creating a admin/user member after you log in as a superadmin/admin by clicking New button at the top right header.
+  You can also creating a admin/user member after you log in as a superadmin/admin by clicking New button at the top right header.
 
 2. Creating member(deleting member):
 
