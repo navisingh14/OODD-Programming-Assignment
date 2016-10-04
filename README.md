@@ -34,13 +34,11 @@ Below are the main function descriptions
 
 4. Booking history of a room:
   
-
-
+  A user can only check the booking history of his own. An admin member can check out the booking history of all rooms, all users and admins. Super admin member can view the booking history for all rooms and members.
 
 
 Special Case:
 1. When delete room which has been booked, the booking will be released;
 2. When delete member who has bookings, the booking will be released.
-
 
 
