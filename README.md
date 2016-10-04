@@ -20,14 +20,20 @@ Below are the main function descriptions
 
   You can always update your own membership information by clicking Profile in the Account drop-down button at the top right heder.An superadmin member can edit the information of admin/user member, an admin member can edit the information of user member. This can be done by clicking the username from the Listing Members form, after you click Member button in the header. 
 
-3. Book a Room(cancel, email notice):
+3. Book a Room (cancel, email notice):
+
+  Overall, all member can book a room for a time slot of 2 hours, he/she cannot cancel such reservation during the reserved time period. According to our schedule system, a daytime is devide 12 dividends, reservation crossing over more than 1 dividend is not allowed.
+  
+  By default, a member can only book one room at a particular time and date. He/she can choose to delete the reservation before the starting time of reserved room. He/she can also type in multiple email addresses at the booking page to inform his team members about the successful reservation. 
+  
+  An admin member can book multiple reservation.
   
   
   
 4. Multiplte Booking:
 
 5. Booking history of a room:
-
+  
 
 
 
@@ -38,3 +44,4 @@ Special Case:
 
 
 
+Property belongs to:
