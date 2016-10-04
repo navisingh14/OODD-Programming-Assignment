@@ -14,15 +14,11 @@ Below are the main function descriptions
 
 1. Signing up/Creating member:
 
-  When you don't have any account in the system, you can always sign up as a user by clicking Sign Up at the front page. 
-
-  You can also creating a admin/user member after you log in as a superadmin/admin by clicking New button at the top right header.
+  When you don't have any account in the system, you can always sign up as a user by clicking Sign Up at the front page. You can also creating a admin/user member after you log in as a superadmin/admin by clicking New button at the top right header.
 
 2. Update information:
 
-  You can always update your own membership information by clicking Profile in the Account drop-down button at the top right heder.
-  
-  An superadmin member can edit the information of admin/user member, an admin member can edit the information of user member. This can be done by clicking the username from the Listing Members form, after you click Member button in the header. 
+  You can always update your own membership information by clicking Profile in the Account drop-down button at the top right heder.An superadmin member can edit the information of admin/user member, an admin member can edit the information of user member. This can be done by clicking the username from the Listing Members form, after you click Member button in the header. 
 
 3. Book a Room(cancel, email notice):
   
