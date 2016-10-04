@@ -25,15 +25,14 @@ Below are the main function descriptions
 
   Overall, all member can book a room for a time slot of 2 hours, he/she cannot cancel such reservation during the reserved time period. According to our schedule system, a daytime is devide 12 segments, reservation crossing over more than 1 segment is not allowed.
   
-  By default, a member can only book one room at a particular time and date. He/she can choose to delete the reservation before the starting time of reserved room. He/she can also type in multiple email addresses at the booking page to inform his team members about the successful reservation. 
+  By default, a member can only book one room at a particular time and date. He/she can choose to delete the reservation before the starting time of reserved room. He/she can also type in multiple email addresses at the booking page to inform his/her team members about the success of reservation. 
   
   Super/admin members can help users to book multiple reservations, they can also enable/disable users to have multiple booking functions which they possess as default.  
-  
-  
-4. Room management:
+
+  Super/admin members have the power to view, edit, update and delete any library room, however users can only check out the detail information of a room which is elementary to super/admin members.
 
 
-5. Booking history of a room:
+4. Booking history of a room:
   
 
 
