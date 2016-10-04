@@ -1,6 +1,6 @@
 Below is some of the information you may find useful while accessing the Library Application.
 
-You can use the default information for the super admin below to log in the system and check out various functions. There are some original information for the users and rooms in the database which you can play with, and the buttons are very self-explanatory to use. The 'LibraryRoom Booking' logo at the top left corner of the header acts as a 'Home' button, feel free to click whenever you need a fresh start. Thank you, and good luck booking!
+You can use the default information for the super admin below to log in the system and check out various functions. There are some original information for the users and rooms in the database which you can play with, and the buttons are very self-explanatory to use. The 'LibraryRoom Booking' logo at the top left corner of the header acts as a 'Home' button, feel free to click whenever you need a fresh start. Thank you and good luck booking!
 
 
 Credentials:
