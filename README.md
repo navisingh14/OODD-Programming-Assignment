@@ -6,6 +6,7 @@ You can use the default information for the super admin below to log in the syst
 
 Credentials:
 Superadmin name: nsingh9@ncsu.edu
+
 password: foobar
 
 
