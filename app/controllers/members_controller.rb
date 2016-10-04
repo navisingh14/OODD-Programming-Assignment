@@ -26,7 +26,8 @@ class MembersController < ApplicationController
     if @member.save
       log_in @member
       # flash[:success] = "Welcome to the Sample App!"
-      redirect_to @member
+      redirect_to @member if @current_member.nil?
+      redirect_to @current_member if !@current_member.nil?
     else
       render 'new'
     end

@@ -7,6 +7,11 @@
 <span style="display:inline-block; width: 3%;"></span>
 <%= link_to 'Book a Room', search_path %>
 <span style="display:inline-block; width: 3%;"></span>
+
+<% if !current_member.admin?  %>
+    <%= link_to "view booking history", historybymember_path(:userid => current_member.username) %>
+<% end %>
+
 <% if current_member.admin?  %>
      <%= link_to "Manage Members", members_path %> <span style="display:inline-block; width: 3%;"></span>
       <%= link_to "Manage Rooms", rooms_path %> <span style="display:inline-block; width: 3%;"></span>

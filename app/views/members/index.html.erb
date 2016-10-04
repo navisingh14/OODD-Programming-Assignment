@@ -40,7 +40,7 @@
           <td><%= "No" %></td>
       <% end%>
 
-      <% if !member.admin? %>
+      <% if (@current_member.admin? && !member.admin?)   %>
     <td>  | <%= link_to "view booking history", historybymember_path(:userid => member.username) %> |</td>
       <% end%>
 

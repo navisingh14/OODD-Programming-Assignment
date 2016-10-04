@@ -2,17 +2,13 @@
     <%= render 'shared/error_messages', object: @member %>
 
     <% if !current_member.nil?%>
-      <% if current_member.superadmin? %>
+      <% if current_member.admin? %>
           <%= f.radio_button(:admin, TRUE) %>
           <%= f.label(:admin, "Admin Member") %><br><br>
           <%= f.radio_button(:admin, FALSE) %>
           <%= f.label(:admin, "Normal Library Member") %><br><br>
       <% end %>
 
-      <% if !current_member.superadmin? and current_member.admin? %>
-            <%= f.label(:admin, "Normal Library Member") %><br><br>
-            <%= f.hidden_field "admin", :value => false %>
-      <% end %>
     <% end %>
 
     <%= f.label :username %><br>

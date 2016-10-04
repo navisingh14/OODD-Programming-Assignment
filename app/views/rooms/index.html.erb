@@ -25,9 +25,9 @@
       <tr>
 
 
-        <td><%= room.number %></td>
-        <td><%= room.building %></td>
-        <td><%= room.size %></td>
+        <td><%= link_to room.number, room %></td>
+        <td><%= link_to room.building, room %></td>
+        <td><%= link_to room.size, room %></td>
         <td>| <%= link_to "Schedule", schedule_path(:id => room.id) %></td>
 
         <td><% if current_member.admin? %>

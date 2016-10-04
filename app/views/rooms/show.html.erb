@@ -23,8 +23,8 @@
 
     <td><% if current_member.admin? %>
           | <%= link_to 'Edit', edit_room_path %>
-          | <%= link_to "History", roomhistories_path(:number => room.number) %>
-          | <%= link_to "Delete", room, method: :delete, data: { confirm: "You sure?" } %>
+          | <%= link_to "History", roomhistories_path(:number => @room.number) %>
+          | <%= link_to "Delete", @room, method: :delete, data: { confirm: "You sure?" } %>
       <% end %></td>
   </tr>
   </tbody>
