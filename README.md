@@ -26,7 +26,7 @@ Below are the main function descriptions
   
   By default, a member can only book one room at a particular time and date. He/she can choose to delete the reservation before the starting time of reserved room. He/she can also type in multiple email addresses at the booking page to inform his team members about the successful reservation. 
   
-  An admin member can book multiple reservation.
+  An admin member can book multiple reservations for users
   
   
   
@@ -44,4 +44,3 @@ Special Case:
 
 
 
-Property belongs to:
