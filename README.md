@@ -19,11 +19,11 @@ Below are the main function descriptions
 
 2. Update information:
 
-  You can always update your own membership information by clicking Profile in the Account drop-down button at the top right heder.An superadmin member can edit the information of admin/user member, an admin member can edit the information of user member. This can be done by clicking the username from the Listing Members form, after you click Member button in the header. 
+  You can always update your own membership information by clicking Profile in the Account drop-down button at the top right heder. An superadmin member can edit the information of admin/user member, an admin member can edit the information of user member. This can be done by clicking the username from the Listing Members form, after you click Member button in the header. 
 
-3. Book a Room (cancel, email notice):
+3. Book a Room (cancel, email notice, room management):
 
-  Overall, all member can book a room for a time slot of 2 hours, he/she cannot cancel such reservation during the reserved time period. According to our schedule system, a daytime is devide 12 segments, reservation crossing over more than 1 segment is not allowed.
+  All members can book a room for a time slot of 2 hours, he/she cannot cancel such reservation during the reserved time period. According to our scheduling system, a day is devided into 12 segments, reservation crossing over more than 1 segment is not allowed.
   
   By default, a member can only book one room at a particular time and date. He/she can choose to delete the reservation before the starting time of reserved room. He/she can also type in multiple email addresses at the booking page to inform his/her team members about the success of reservation. 
   
