@@ -1,4 +1,4 @@
 class Roomhistory < ApplicationRecord
-  belongs_to :user
-  belongs_to :library_room
+  belongs_to :member
+  belongs_to :room
 end
